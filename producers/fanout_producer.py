@@ -1,3 +1,4 @@
+from config import Exchanges
 from connection import connection, channel
 import pika
 import random
@@ -5,10 +6,11 @@ import random
 MESSAGES_TO_SEND = 300
 
 try:
+    print('Enviando mensajes con producer fanout.')
     for i in range(MESSAGES_TO_SEND):
         msg = str(random.randint(1, 100))
         channel.basic_publish(
-            exchange='fanout',
+            exchange=Exchanges.FANOUT_EXCHANGE,
             routing_key='',
             body=msg,
             properties=pika.BasicProperties(

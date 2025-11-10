@@ -18,7 +18,7 @@ try:
             )
         )
 
-        if i % 20 == 0:
+        if i % 100 == 0:
             print(f'{i}/{MESSAGES_TO_SEND} mensajes enviados')
 
 except KeyboardInterrupt:
